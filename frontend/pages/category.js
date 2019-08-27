@@ -8,7 +8,6 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
-import FeaturedPost from '../microcomponents/FeaturedPost';
 
 const CategoryContainer = styled.div`
   a {
@@ -51,6 +50,18 @@ const CategoryPost = styled.div`
   }
 `;
 
+const FeaturedContent = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 540px;
+  }
+`;
+
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
 class Category extends Component {
@@ -77,7 +88,43 @@ class Category extends Component {
     const { categories, posts, headerMenu } = this.props;
     if (categories.length === 0) return <Error statusCode={404} />;
 
-    const fposts = posts.map(post => {
+    // make array of sticky posts
+    const ftrposts = posts.filter(ftrpost => ftrpost.sticky === true);
+
+    // make array of non-sticky posts
+    const regposts = posts.filter(regpost => regpost.sticky !== true);
+
+    const stickycontent = ftrposts.map(stickypost => {
+      const stickyImage =
+        stickypost._embedded['wp:featuredmedia'][0].media_details.sizes
+          .medium_large.source_url;
+
+      return (
+        <FeaturedContent key={stickypost.id}>
+          <a href={`/post?slug=${stickypost.slug}&apiRoute=post`}>
+            <img src={stickyImage} alt="" />
+          </a>
+          <div className="content">
+            <div>
+              <Link
+                as={`/post/${stickypost.slug}`}
+                href={`/post?slug=${stickypost.slug}&apiRoute=post`}
+              >
+                <a>{stickypost.title.rendered}</a>
+              </Link>
+            </div>
+            <div
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: stickypost.excerpt.rendered,
+              }}
+            />
+          </div>
+        </FeaturedContent>
+      );
+    });
+
+    const fposts = regposts.map(post => {
       const featuredImage =
         post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large
           .source_url;
@@ -109,6 +156,8 @@ class Category extends Component {
 
     console.log(posts);
     console.log(categories);
+    console.log(regposts);
+    console.log(ftrposts);
 
     return (
       <Layout>
@@ -118,8 +167,10 @@ class Category extends Component {
             <img src={categories[0].acf.image.sizes.medium} alt="placeholder" />
           </div>
           <h1 className="categoryHead">{categories[0].name}</h1>
-          <FeaturedPost />
-          <div className="postLayout">{fposts}</div>
+          <div>
+            <div>{stickycontent}</div>
+            <div className="postLayout">{fposts}</div>
+          </div>
         </CategoryContainer>
       </Layout>
     );

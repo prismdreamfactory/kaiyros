@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Error from 'next/error';
 import WPAPI from 'wpapi';
 import Layout from '../components/Layout';
@@ -7,6 +8,12 @@ import Menu from '../components/Menu';
 import Config from '../config';
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });
+
+const PostStyle = styled.div`
+  img {
+    width: 100%;
+  }
+`;
 
 class Post extends Component {
   static async getInitialProps(context) {
@@ -42,13 +49,22 @@ class Post extends Component {
     return (
       <Layout>
         <Menu menu={headerMenu} />
-        <h1>{post.title.rendered}</h1>
-        <div
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: post.content.rendered,
-          }}
-        />
+        <PostStyle>
+          <img
+            src={
+              post._embedded['wp:featuredmedia'][0].media_details.sizes.large
+                .source_url
+            }
+            alt=""
+          />
+          <h1>{post.title.rendered}</h1>
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: post.content.rendered,
+            }}
+          />
+        </PostStyle>
       </Layout>
     );
   }
