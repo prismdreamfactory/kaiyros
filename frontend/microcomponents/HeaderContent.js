@@ -9,7 +9,6 @@ const HeaderStuff = styled.div`
   a {
     text-decoration: none;
   }
-
   h1 {
     text-transform: uppercase;
     margin-bottom: 0.3rem;
@@ -51,7 +50,7 @@ export const HeaderContent = () => {
               src="../static/images/KairosLogoSquare.svg"
               alt=""
             />
-            <h1>Kaiyros</h1>
+            <h1>Kaiyros.net</h1>
           </div>
         </a>
         <h4>Connecting the :Dots: of Human Potential</h4>

@@ -92,25 +92,6 @@ const Graphic = styled.div`
     left: 44%;
   }
 
-  .floating:hover {
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-  }
-
-  @keyframes floating {
-    from {
-      transform: translate(0, 0px);
-    }
-    65% {
-      transform: translate(0, 10px);
-    }
-    to {
-      transform: translate(0, -0px);
-    }
-  }
-
   .rotate:hover {
     -webkit-animation-name: spin;
     -webkit-animation-duration: 15s;

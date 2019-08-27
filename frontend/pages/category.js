@@ -8,9 +8,11 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
+import FeaturedPost from '../microcomponents/FeaturedPost';
 
 const CategoryContainer = styled.div`
   a {
+    font-size: 1.5rem;
     color: #000;
     text-decoration: none;
   }
@@ -42,6 +44,11 @@ const CategoryPost = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 `;
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });
@@ -72,7 +79,7 @@ class Category extends Component {
 
     const fposts = posts.map(post => {
       const featuredImage =
-        post._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+        post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large
           .source_url;
 
       return (
@@ -111,6 +118,7 @@ class Category extends Component {
             <img src={categories[0].acf.image.sizes.medium} alt="placeholder" />
           </div>
           <h1 className="categoryHead">{categories[0].name}</h1>
+          <FeaturedPost />
           <div className="postLayout">{fposts}</div>
         </CategoryContainer>
       </Layout>

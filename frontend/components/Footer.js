@@ -10,7 +10,6 @@ const FooterNav = styled.div`
 
 const Footer = () => (
   <FooterNav>
-    <hr />
     <a href="/page/about">About • </a>
     <a href="/page/contact">Contact • </a>
     <a href="/page/connect">Connect</a>

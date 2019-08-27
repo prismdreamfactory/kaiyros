@@ -1,22 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 import { HeaderContent } from '../microcomponents/HeaderContent';
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-};
+const LayoutStyle = styled.div`
+  font-family: futura;
+  margin: 20px;
+  padding: 20px;
+`;
 
 const Layout = props => {
   const { children } = props;
   return (
-    <div style={layoutStyle}>
+    <LayoutStyle>
       <Header />
       <HeaderContent />
       {children}
       <Footer />
-    </div>
+    </LayoutStyle>
   );
 };
 export default Layout;
