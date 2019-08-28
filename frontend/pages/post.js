@@ -10,8 +10,14 @@ import Config from '../config';
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
 const PostStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 8rem;
   img {
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
   }
 `;
 

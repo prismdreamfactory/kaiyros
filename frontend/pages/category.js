@@ -35,6 +35,12 @@ const CategoryContainer = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    .postLayout {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 const CategoryPost = styled.div`
@@ -53,12 +59,26 @@ const CategoryPost = styled.div`
 const FeaturedContent = styled.div`
   display: flex;
   justify-content: space-evenly;
+  padding: 2rem 0;
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 540px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex-direction: column;
+    img {
+      width: 100%;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    flex-direction: column;
+    img {
+      width: 100%;
+    }
   }
 `;
 

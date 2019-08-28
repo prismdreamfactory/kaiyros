@@ -15,10 +15,7 @@ const HeaderStuff = styled.div`
   }
   h4 {
     text-transform: uppercase;
-    margin-left: 11rem;
-  }
-  .head {
-    width: 40%;
+    margin-left: 8rem;
   }
   .title {
     display: flex;
@@ -36,13 +33,29 @@ const HeaderStuff = styled.div`
     align-items: center;
     justify-content: space-evenly;
     width: 15%;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      display: none;
+    }
+    @media (min-width: 481px) and (max-width: 767px) {
+      display: none;
+    }
+    @media (min-width: 320px) and (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    .kaiyros {
+      width: 100%;
+    }
   }
 `;
 
 export const HeaderContent = () => {
   return (
     <HeaderStuff>
-      <div className="head">
+      <div className="kaiyros">
         <a href="/">
           <div className="title">
             <img
