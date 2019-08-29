@@ -16,6 +16,14 @@ const CategoryContainer = styled.div`
   background: #ccc;
 `;
 
+const CategoryItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+  }
+`;
+
 const Open = styled.a`
   position: fixed;
   top: 2rem;
@@ -79,6 +87,7 @@ class CategoryMenu extends Component {
 
   render() {
     const { menuIsOpen } = this.state;
+    const { items } = this.props.categoriesMenu;
 
     return (
       <CategoryList>
@@ -87,6 +96,13 @@ class CategoryMenu extends Component {
             <Close onClick={this.handleCloseMenu}>
               <div className="close" />
             </Close>
+            <CategoryItem>
+              {items.map(item => (
+                <a href={item.url} alt="">
+                  {item.title}
+                </a>
+              ))}
+            </CategoryItem>
           </CategoryContainer>
         )}
         {!menuIsOpen && (

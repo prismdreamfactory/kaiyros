@@ -102,7 +102,7 @@ class Index extends Component {
       );
     });
     return (
-      <Layout>
+      <Layout {...this.props}>
         <Graphic />
         {/* <img
           src="/static/images/wordpress-plus-react-header.png"

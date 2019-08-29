@@ -173,14 +173,12 @@ class Category extends Component {
       );
     });
 
-    console.log('posts', posts);
-    console.log(categories);
-    console.log(regposts);
-    console.log(ftrposts);
     console.log('categories menu', this.props.categoriesMenu);
+    console.log('cat', categories);
+    console.log('posts', posts);
 
     return (
-      <Layout>
+      <Layout {...this.props}>
         <Menu menu={headerMenu} />
         <CategoryContainer>
           <div className="center">

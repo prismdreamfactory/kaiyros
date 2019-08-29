@@ -11,11 +11,14 @@ const LayoutStyle = styled.div`
 
 const Layout = props => {
   const { children } = props;
+
+  console.log('layout', props);
+
   return (
     <LayoutStyle>
       <Header />
       <HeaderContent />
-      <CategoryMenu />
+      <CategoryMenu {...props} />
       {children}
       <Footer />
     </LayoutStyle>
