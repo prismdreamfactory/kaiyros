@@ -53,7 +53,7 @@ class Post extends Component {
     if (!post.title) return <Error statusCode={404} />;
 
     return (
-      <Layout>
+      <Layout {...this.props}>
         <Menu menu={headerMenu} />
         <PostStyle>
           <img

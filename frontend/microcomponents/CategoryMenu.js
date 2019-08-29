@@ -20,7 +20,11 @@ const CategoryItem = styled.div`
   display: flex;
   flex-direction: column;
   a {
+    font-size: 3.5vh;
+    color: #000;
     text-decoration: none;
+    margin-bottom: 2rem;
+    cursor: pointer;
   }
 `;
 

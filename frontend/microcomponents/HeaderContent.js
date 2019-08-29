@@ -34,13 +34,7 @@ const HeaderStuff = styled.div`
     justify-content: space-evenly;
     width: 15%;
 
-    @media (min-width: 768px) and (max-width: 1024px) {
-      display: none;
-    }
-    @media (min-width: 481px) and (max-width: 767px) {
-      display: none;
-    }
-    @media (min-width: 320px) and (max-width: 480px) {
+    @media (min-width: 0px) and (max-width: 1024px) {
       display: none;
     }
   }

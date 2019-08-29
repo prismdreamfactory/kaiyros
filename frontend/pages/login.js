@@ -44,7 +44,7 @@ class Login extends Component {
     const { headerMenu } = this.props;
 
     return (
-      <Layout>
+      <Layout {...this.props}>
         <Menu menu={headerMenu} />
         <h1>Login {message}</h1>
         <div className="login">

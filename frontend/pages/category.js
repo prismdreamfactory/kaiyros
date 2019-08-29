@@ -8,15 +8,18 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
+import DatePost from '../microcomponents/DatePost';
 
 const CategoryContainer = styled.div`
+  max-width: 1100px;
+  margin: auto;
   a {
-    font-size: 1.5rem;
+    font-size: 1.5vh;
     color: #000;
     text-decoration: none;
   }
   img {
-    padding: 0 0 1rem;
+    margin-bottom: 1rem;
   }
   .center {
     display: flex;
@@ -36,7 +39,7 @@ const CategoryContainer = styled.div`
     flex-direction: column;
   }
 
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (min-width: 0px) and (max-width: 1024px) {
     .postLayout {
       grid-template-columns: 1fr;
     }
@@ -57,23 +60,19 @@ const CategoryPost = styled.div`
 
 const FeaturedContent = styled.div`
   display: flex;
+  max-width: 2000px;
+  margin: 2rem auto;
   justify-content: space-evenly;
-  padding: 2rem 0;
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 1rem;
     max-width: 540px;
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    flex-direction: column;
-    img {
-      width: 100%;
-    }
-  }
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (min-width: 0px) and (max-width: 1024px) {
     flex-direction: column;
     img {
       width: 100%;
@@ -132,6 +131,7 @@ class Category extends Component {
                 <a>{stickypost.title.rendered}</a>
               </Link>
             </div>
+            <DatePost datesrc={stickypost.date} />
             <div
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
@@ -162,6 +162,7 @@ class Category extends Component {
             >
               <a>{post.title.rendered}</a>
             </Link>
+            <DatePost datesrc={post.date} />
             <div
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
