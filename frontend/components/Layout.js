@@ -3,11 +3,10 @@ import styled from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 import { HeaderContent } from '../microcomponents/HeaderContent';
+import CategoryMenu from '../microcomponents/CategoryMenu';
 
 const LayoutStyle = styled.div`
   font-family: futura;
-  margin: 20px;
-  padding: 20px;
 `;
 
 const Layout = props => {
@@ -16,6 +15,7 @@ const Layout = props => {
     <LayoutStyle>
       <Header />
       <HeaderContent />
+      <CategoryMenu />
       {children}
       <Footer />
     </LayoutStyle>

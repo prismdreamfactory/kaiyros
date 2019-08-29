@@ -47,7 +47,6 @@ const HeaderStuff = styled.div`
 
   @media (min-width: 320px) and (max-width: 480px) {
     .kaiyros {
-      width: 100%;
     }
   }
 `;

@@ -48,7 +48,6 @@ const CategoryPost = styled.div`
   max-width: 625px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
 
   img {
     width: 100%;
@@ -174,10 +173,11 @@ class Category extends Component {
       );
     });
 
-    console.log(posts);
+    console.log('posts', posts);
     console.log(categories);
     console.log(regposts);
     console.log(ftrposts);
+    console.log('categories menu', this.props.categoriesMenu);
 
     return (
       <Layout>
