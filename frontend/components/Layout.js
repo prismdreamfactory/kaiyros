@@ -6,7 +6,15 @@ import { HeaderContent } from '../microcomponents/HeaderContent';
 // import CategoryMenu from '../microcomponents/CategoryMenu';
 
 const LayoutStyle = styled.div`
-  font-family: futura;
+  font-family: sans-serif;
+
+  p {
+    line-height: 1.6;
+  }
+
+  a:hover {
+    color: rgba(0, 0, 0, 0.6);
+  }
 `;
 
 const Layout = props => {

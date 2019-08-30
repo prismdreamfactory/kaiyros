@@ -15,8 +15,8 @@ const CategoryContainer = styled.div`
   margin: auto;
   a {
     font-size: 1.3rem;
-    color: #000;
     text-decoration: none;
+    color: #000;
   }
   img {
     margin-bottom: 1rem;
@@ -63,6 +63,7 @@ const CategoryPost = styled.div`
 
   .title {
     font-size: 1.5rem;
+    text-transform: uppercase;
   }
 `;
 
@@ -82,6 +83,7 @@ const FeaturedContent = styled.div`
 
   .title {
     font-size: 1.5rem;
+    text-transform: uppercase;
   }
 
   @media (min-width: 0px) and (max-width: 1024px) {

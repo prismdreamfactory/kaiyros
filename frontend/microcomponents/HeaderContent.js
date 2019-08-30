@@ -14,6 +14,9 @@ const HeaderStuff = styled.div`
     text-transform: uppercase;
     margin-bottom: 0.3rem;
   }
+  h1:hover {
+    color: rgba(0, 0, 0, 0.6);
+  }
   h4 {
     text-transform: uppercase;
     margin-left: 8rem;

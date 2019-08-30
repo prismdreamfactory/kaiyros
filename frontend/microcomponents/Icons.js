@@ -7,6 +7,9 @@ const IconsStyle = styled.div`
     color: #000;
     margin-right: 1rem;
   }
+  svg:hover {
+    color: rgba(0, 0, 0, 0.6);
+  }
 `;
 
 export const Icons = () => {

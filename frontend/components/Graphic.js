@@ -141,59 +141,73 @@ export const Graphics = () => {
   return (
     <Graphic>
       <div className="content">
-        <img
-          className="rotate shape1"
-          src="../static/images/sacredgeo1.svg"
-          alt=""
-        />
+        <a href="/category/letters-to-human-family">
+          <img
+            className="rotate shape1"
+            src="../static/images/sacredgeo1.svg"
+            alt=""
+          />
+        </a>
         <a className="text text1" href="/category/letters-to-human-family">
           Letters to <br /> Human Family
         </a>
-        <img
-          className="rotate shape shape2"
-          src="../static/images/sacredgeo2.svg"
-          alt=""
-        />
+        <a href="/category/science-of-spirit">
+          <img
+            className="rotate shape shape2"
+            src="../static/images/sacredgeo2.svg"
+            alt=""
+          />
+        </a>
         <a className="text text2" href="/category/science-of-spirit">
           Science of Spirit
         </a>
-        <img
-          className="rotate shape shape3"
-          src="../static/images/sacredgeo3.svg"
-          alt=""
-        />
+        <a href="/category/social-impact">
+          <img
+            className="rotate shape shape3"
+            src="../static/images/sacredgeo3.svg"
+            alt=""
+          />
+        </a>
         <a className="text text3" href="/category/social-impact">
           Social Impact
         </a>
-        <img
-          className="rotate shape shape4"
-          src="../static/images/sacredgeo4.svg"
-          alt=""
-        />
+        <a href="/category/human-tech">
+          <img
+            className="rotate shape shape4"
+            src="../static/images/sacredgeo4.svg"
+            alt=""
+          />
+        </a>
         <a className="text text4" href="/category/human-tech">
           Human Tech
         </a>
-        <img
-          className="rotate shape shape5"
-          src="../static/images/sacredgeo5.svg"
-          alt=""
-        />
+        <a href="/category/integrative-mental-health">
+          <img
+            className="rotate shape shape5"
+            src="../static/images/sacredgeo5.svg"
+            alt=""
+          />
+        </a>
         <a className="text text5" href="/category/integrative-mental-health">
           Integrative <br /> Mental Health
         </a>
-        <img
-          className="rotate shape shape6"
-          src="../static/images/sacredgeo6.svg"
-          alt=""
-        />
+        <a href="/category/metaphysics-of-healing">
+          <img
+            className="rotate shape shape6"
+            src="../static/images/sacredgeo6.svg"
+            alt=""
+          />
+        </a>
         <a className="text text6" href="/category/metaphysics-of-healing">
           Metaphysics of <br /> Healing
         </a>
-        <img
-          className="shape shape7"
-          src="../static/images/sacredgeo7.svg"
-          alt=""
-        />
+        <a href="/category/practical-self">
+          <img
+            className="shape shape7"
+            src="../static/images/sacredgeo7.svg"
+            alt=""
+          />
+        </a>
         <a className="text text7" href="/category/practical-self">
           Practical Self
         </a>

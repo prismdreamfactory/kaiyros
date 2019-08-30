@@ -22,11 +22,12 @@ const CategoryItem = styled.div`
   flex-direction: column;
   a {
     font-size: 3.5vh;
-    color: #000;
     text-decoration: none;
     margin-bottom: 2rem;
     cursor: pointer;
+    color: #000;
   }
+
   .icons {
     display: none;
     @media (min-width: 0px) and (max-width: 1024px) {

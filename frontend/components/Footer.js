@@ -7,6 +7,9 @@ const FooterNav = styled.div`
     text-transform: uppercase;
     color: #000;
   }
+  a:hover {
+    color: rgba(0, 0, 0, 0.6);
+  }
 
   @media (min-width: 0px) and (max-width: 1024px) {
     display: flex;
