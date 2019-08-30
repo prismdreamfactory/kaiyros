@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
-import DatePost from '../microcomponents/DatePost';
+import { DatePost } from '../microcomponents/DatePost';
 
 const CategoryContainer = styled.div`
   max-width: 1100px;
@@ -20,6 +20,9 @@ const CategoryContainer = styled.div`
   }
   img {
     margin-bottom: 1rem;
+  }
+  .categoryTitle {
+    margin-bottom: 4rem;
   }
   .center {
     display: flex;
@@ -57,6 +60,10 @@ const CategoryPost = styled.div`
     width: 100%;
     object-fit: cover;
   }
+
+  .title {
+    font-size: 1.5rem;
+  }
 `;
 
 const FeaturedContent = styled.div`
@@ -71,6 +78,10 @@ const FeaturedContent = styled.div`
     justify-content: center;
     padding: 0 2rem;
     max-width: 540px;
+  }
+
+  .title {
+    font-size: 1.5rem;
   }
 
   @media (min-width: 0px) and (max-width: 1024px) {
@@ -129,7 +140,7 @@ class Category extends Component {
                 as={`/post/${stickypost.slug}`}
                 href={`/post?slug=${stickypost.slug}&apiRoute=post`}
               >
-                <a>{stickypost.title.rendered}</a>
+                <a className="title">{stickypost.title.rendered}</a>
               </Link>
             </div>
             <DatePost datesrc={stickypost.date} />
@@ -161,7 +172,7 @@ class Category extends Component {
               as={`/post/${post.slug}`}
               href={`/post?slug=${post.slug}&apiRoute=post`}
             >
-              <a>{post.title.rendered}</a>
+              <a className="title">{post.title.rendered}</a>
             </Link>
             <DatePost datesrc={post.date} />
             <div
@@ -183,10 +194,15 @@ class Category extends Component {
       <Layout {...this.props}>
         <Menu menu={headerMenu} />
         <CategoryContainer>
-          <div className="center">
-            <img src={categories[0].acf.image.sizes.medium} alt="placeholder" />
+          <div className="categoryTitle">
+            <div className="center">
+              <img
+                src={categories[0].acf.image.sizes.medium}
+                alt="placeholder"
+              />
+            </div>
+            <h1 className="categoryHead">{categories[0].name}</h1>
           </div>
-          <h1 className="categoryHead">{categories[0].name}</h1>
           <div>
             <div>{stickycontent}</div>
             <div className="postLayout">{fposts}</div>

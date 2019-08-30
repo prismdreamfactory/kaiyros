@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const DateStyle = styled.div`
-  font-size: 1.1rem;
+const DateStyle = styled.p`
+  font-size: 1rem;
 `;
 
 export const DatePost = props => {

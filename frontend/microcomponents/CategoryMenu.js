@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Icons from './Icons';
+import { Icons } from './Icons';
 
 const CategoryList = styled.div``;
 
