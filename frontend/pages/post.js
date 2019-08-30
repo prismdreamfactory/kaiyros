@@ -6,13 +6,13 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
+import DatePost from '../microcomponents/DatePost';
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
 const PostStyle = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 3rem 8rem;
   img {
     width: 100%;
     margin-left: auto;
@@ -64,6 +64,7 @@ class Post extends Component {
             alt=""
           />
           <h1>{post.title.rendered}</h1>
+          <DatePost datesrc={post.date} />
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{

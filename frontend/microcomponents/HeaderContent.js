@@ -43,13 +43,22 @@ const HeaderStuff = styled.div`
       font-size: 1.5rem;
       margin: 0;
     }
+
     .kaiyros,
     .icons {
       display: none;
     }
-    .mobile {
+    .alignCenter {
       display: flex;
       align-items: center;
+    }
+    .mobile {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: #fff;
+      top: 0;
     }
     .logo {
       width: 2rem;
@@ -81,12 +90,14 @@ export const HeaderContent = props => {
 
       {/* mobile banner */}
       <div className="mobile">
-        <img
-          className="logo"
-          src="../static/images/KairosLogoSquare.svg"
-          alt=""
-        />
-        <h1>Kaiyros.net</h1>
+        <a className="alignCenter" href="/">
+          <img
+            className="logo"
+            src="../static/images/KairosLogoSquare.svg"
+            alt=""
+          />
+          <h1>Kaiyros.net</h1>
+        </a>
         <div className="menu">
           <CategoryMenu {...props} />
         </div>
