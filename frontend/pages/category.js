@@ -14,7 +14,7 @@ const CategoryContainer = styled.div`
   max-width: 1100px;
   margin: auto;
   a {
-    font-size: 1.5vh;
+    font-size: 1.3rem;
     color: #000;
     text-decoration: none;
   }
@@ -68,7 +68,7 @@ const FeaturedContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 1rem;
+    padding: 0 2rem;
     max-width: 540px;
   }
 

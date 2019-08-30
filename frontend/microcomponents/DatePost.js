@@ -1,20 +1,23 @@
-import { Component } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-class DatePost extends Component {
-  render() {
-    const { datesrc } = this.props;
-    const event = new Date(datesrc);
-    const options = {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour12: false,
-      timeZone: 'America/Los_Angeles',
-    };
-    const date = new Intl.DateTimeFormat('en-US', options).format(event);
+const DateStyle = styled.div`
+  font-size: 1.1rem;
+`;
 
-    return date;
-  }
-}
+export const DatePost = props => {
+  const { datesrc } = props;
+  const event = new Date(datesrc);
+  const options = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour12: false,
+    timeZone: 'America/Los_Angeles',
+  };
+  const date = new Intl.DateTimeFormat('en-US', options).format(event);
+
+  return <DateStyle>{date}</DateStyle>;
+};
 
 export default DatePost;

@@ -29,9 +29,9 @@ const CategoryItem = styled.div`
 `;
 
 const Open = styled.a`
-  position: fixed;
+  /* position: fixed;
   top: 2rem;
-  right: 2rem;
+  right: 2rem; */
   cursor: pointer;
 
   div {
@@ -43,9 +43,9 @@ const Open = styled.a`
 `;
 
 const Close = styled.a`
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+  position: fixed;
+  top: 4.5rem;
+  right: 4rem;
 
   .close {
     width: 40px;

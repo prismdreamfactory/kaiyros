@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaInstagram, FaTwitter, FaPinterest } from 'react-icons/fa';
+import CategoryMenu from './CategoryMenu';
 
 const HeaderStuff = styled.div`
   display: flex;
@@ -32,20 +33,21 @@ const HeaderStuff = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 15%;
+    width: 25%;
 
-    @media (min-width: 0px) and (max-width: 1024px) {
-      display: none;
+    svg {
+      color: #000;
     }
   }
-
-  @media (min-width: 320px) and (max-width: 480px) {
-    .kaiyros {
+  @media (min-width: 0px) and (max-width: 1024px) {
+    .kaiyros,
+    .icons {
+      display: none;
     }
   }
 `;
 
-export const HeaderContent = () => {
+export const HeaderContent = props => {
   return (
     <HeaderStuff>
       <div className="kaiyros">
@@ -67,22 +69,23 @@ export const HeaderContent = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaInstagram size="40px" />
+          <FaInstagram size="30px" />
         </a>
         <a
           href="https://twitter.com/kaiyros_27"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTwitter size="40px" />
+          <FaTwitter size="30px" />
         </a>
         <a
           href="https://www.pinterest.com/kaiyros_27/?eq=kaiyros&etslf=4567"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaPinterest size="40px" />
+          <FaPinterest size="30px" />
         </a>
+        <CategoryMenu {...props} />
       </div>
     </HeaderStuff>
   );

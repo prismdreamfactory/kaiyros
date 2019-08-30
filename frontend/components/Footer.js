@@ -5,6 +5,7 @@ const FooterNav = styled.div`
   a {
     text-decoration: none;
     text-transform: uppercase;
+    color: #000;
   }
 `;
 
