@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Icons from './Icons';
 
 const CategoryList = styled.div``;
 
@@ -25,6 +26,12 @@ const CategoryItem = styled.div`
     text-decoration: none;
     margin-bottom: 2rem;
     cursor: pointer;
+  }
+  .icons {
+    display: none;
+    @media (min-width: 0px) and (max-width: 1024px) {
+      display: flex;
+    }
   }
 `;
 
@@ -106,6 +113,9 @@ class CategoryMenu extends Component {
                   {item.title}
                 </a>
               ))}
+              <div className="icons">
+                <Icons />
+              </div>
             </CategoryItem>
           </CategoryContainer>
         )}

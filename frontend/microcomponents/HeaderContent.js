@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaInstagram, FaTwitter, FaPinterest } from 'react-icons/fa';
+import { Icons } from './Icons';
 import CategoryMenu from './CategoryMenu';
 
 const HeaderStuff = styled.div`
@@ -32,17 +32,32 @@ const HeaderStuff = styled.div`
   .icons {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 25%;
-
-    svg {
-      color: #000;
-    }
   }
+
+  .mobile {
+    display: none;
+  }
+
   @media (min-width: 0px) and (max-width: 1024px) {
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
     .kaiyros,
     .icons {
       display: none;
+    }
+    .mobile {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 2rem;
+    }
+    .menu {
+      position: fixed;
+      top: 1.5rem;
+      right: 1rem;
     }
   }
 `;
@@ -63,28 +78,23 @@ export const HeaderContent = props => {
         </a>
         <h4>Connecting the :Dots: of Human Potential</h4>
       </div>
+
+      {/* mobile banner */}
+      <div className="mobile">
+        <img
+          className="logo"
+          src="../static/images/KairosLogoSquare.svg"
+          alt=""
+        />
+        <h1>Kaiyros.net</h1>
+        <div className="menu">
+          <CategoryMenu {...props} />
+        </div>
+      </div>
+
+      {/* general icons */}
       <div className="icons">
-        <a
-          href="https://www.instagram.com/kaiyros_27/?hl=en"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram size="30px" />
-        </a>
-        <a
-          href="https://twitter.com/kaiyros_27"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaTwitter size="30px" />
-        </a>
-        <a
-          href="https://www.pinterest.com/kaiyros_27/?eq=kaiyros&etslf=4567"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaPinterest size="30px" />
-        </a>
+        <Icons />
         <CategoryMenu {...props} />
       </div>
     </HeaderStuff>
