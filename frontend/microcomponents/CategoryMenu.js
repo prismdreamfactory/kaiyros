@@ -21,17 +21,25 @@ const CategoryItem = styled.div`
   display: flex;
   flex-direction: column;
   a {
-    font-size: 3.5vh;
     text-decoration: none;
-    margin-bottom: 2rem;
     cursor: pointer;
     color: #000;
+    padding: 1rem;
+  }
+  img {
+    width: 10%;
+    padding: 0 1rem;
+  }
+  .categoryEntry {
+    display: flex;
+    margin-bottom: 0.5rem;
   }
 
   .icons {
     display: none;
     @media (min-width: 0px) and (max-width: 1024px) {
       display: flex;
+      justify-content: center;
     }
   }
 `;
@@ -52,8 +60,8 @@ const Open = styled.a`
 
 const Close = styled.a`
   position: fixed;
-  top: 4.5rem;
-  right: 4rem;
+  top: 2rem;
+  right: 2rem;
 
   .close {
     width: 40px;
@@ -99,7 +107,7 @@ class CategoryMenu extends Component {
 
   render() {
     const { menuIsOpen } = this.state;
-    const { items } = this.props.categoriesMenu;
+    const { categoriesMenu } = this.props;
 
     return (
       <CategoryList>
@@ -109,14 +117,16 @@ class CategoryMenu extends Component {
               <div className="close" />
             </Close>
             <CategoryItem>
-              {/* <img
-                src={categories[0].acf.image.sizes.thumbnail}
-                alt="placeholder"
-              /> */}
-              {items.map(item => (
-                <a href={item.url} alt="">
-                  {item.title}
-                </a>
+              {categoriesMenu.map(category => (
+                <div className="categoryEntry">
+                  <img
+                    src={category.acf.image.sizes.thumbnail}
+                    alt="placeholder"
+                  />
+                  <a href={category.link} alt="">
+                    {category.name}
+                  </a>
+                </div>
               ))}
               <div className="icons">
                 <Icons />

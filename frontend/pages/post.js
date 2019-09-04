@@ -18,6 +18,7 @@ const PostStyle = styled.div`
 
   a {
     color: #2b9985;
+    text-decoration: none;
   }
 
   margin: auto;

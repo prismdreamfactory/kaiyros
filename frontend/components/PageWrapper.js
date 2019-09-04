@@ -12,7 +12,7 @@ const PageWrapper = Comp =>
     static async getInitialProps(args) {
       const [headerMenu, categoriesMenu, childProps] = await Promise.all([
         wp.menus().id('header-menu'),
-        wp.menus().id('categories'),
+        wp.categories(),
         Comp.getInitialProps(args),
       ]);
 
