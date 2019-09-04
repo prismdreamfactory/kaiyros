@@ -109,6 +109,10 @@ class CategoryMenu extends Component {
               <div className="close" />
             </Close>
             <CategoryItem>
+              {/* <img
+                src={categories[0].acf.image.sizes.thumbnail}
+                alt="placeholder"
+              /> */}
               {items.map(item => (
                 <a href={item.url} alt="">
                   {item.title}

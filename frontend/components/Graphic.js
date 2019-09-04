@@ -11,6 +11,7 @@ const Graphic = styled.div`
   a {
     text-decoration: none;
     font-size: 1.6vh;
+    color: #000;
   }
 
   .content {

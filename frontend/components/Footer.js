@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterNav = styled.div`
+  padding: 2.5rem;
   a {
     text-decoration: none;
     text-transform: uppercase;
     color: #000;
+    margin-right: 0.5rem;
   }
   a:hover {
     color: rgba(0, 0, 0, 0.6);

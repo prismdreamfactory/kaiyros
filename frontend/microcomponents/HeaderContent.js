@@ -15,7 +15,7 @@ const HeaderStuff = styled.div`
     margin-bottom: 0.3rem;
   }
   h1:hover {
-    color: rgba(0, 0, 0, 0.6);
+    color: #2b9985;
   }
   h4 {
     text-transform: uppercase;
@@ -35,6 +35,7 @@ const HeaderStuff = styled.div`
   .icons {
     display: flex;
     align-items: center;
+    padding: 1.5rem;
   }
 
   .mobile {

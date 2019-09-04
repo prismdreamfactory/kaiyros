@@ -6,18 +6,32 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
-import DatePost from '../microcomponents/DatePost';
+import { DatePost } from '../microcomponents/DatePost';
+import { ShareButtons } from '../microcomponents/ShareButtons';
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
 const PostStyle = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
+
+  a {
+    color: #2b9985;
+  }
+
+  margin: auto;
   img {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
+    max-height: 500px;
+  }
+  .sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
@@ -63,8 +77,19 @@ class Post extends Component {
             }
             alt=""
           />
+
           <h1>{post.title.rendered}</h1>
-          <DatePost datesrc={post.date} />
+
+          <div className="sub">
+            <DatePost datesrc={post.date} />
+            <ShareButtons
+              url={post.link}
+              media={
+                post._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                  .source_url
+              }
+            />
+          </div>
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{

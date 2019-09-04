@@ -13,7 +13,7 @@ const LayoutStyle = styled.div`
   }
 
   a:hover {
-    color: rgba(0, 0, 0, 0.6);
+    color: #2b9985;
   }
 `;
 

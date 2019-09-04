@@ -8,7 +8,7 @@ const IconsStyle = styled.div`
     margin-right: 1rem;
   }
   svg:hover {
-    color: rgba(0, 0, 0, 0.6);
+    color: #2b9985;
   }
 `;
 

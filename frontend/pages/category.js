@@ -9,6 +9,7 @@ import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
 import { DatePost } from '../microcomponents/DatePost';
+import { ShareButtons } from '../microcomponents/ShareButtons';
 
 const CategoryContainer = styled.div`
   max-width: 1100px;
@@ -17,9 +18,6 @@ const CategoryContainer = styled.div`
     font-size: 1.3rem;
     text-decoration: none;
     color: #000;
-  }
-  img {
-    margin-bottom: 1rem;
   }
   .categoryTitle {
     margin-bottom: 4rem;
@@ -35,11 +33,8 @@ const CategoryContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto auto;
-    justify-items: center;
-  }
-  .postInfo {
-    display: flex;
-    flex-direction: column;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
   }
 
   @media (min-width: 0px) and (max-width: 1024px) {
@@ -51,10 +46,10 @@ const CategoryContainer = styled.div`
 `;
 
 const CategoryPost = styled.div`
-  padding: 18px 13px;
   max-width: 625px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   img {
     width: 100%;
@@ -70,14 +65,14 @@ const CategoryPost = styled.div`
 const FeaturedContent = styled.div`
   display: flex;
   max-width: 2000px;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   justify-content: space-evenly;
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     max-width: 540px;
   }
 
@@ -90,6 +85,9 @@ const FeaturedContent = styled.div`
     flex-direction: column;
     img {
       width: 100%;
+    }
+    .content {
+      padding: 0;
     }
   }
 `;
@@ -131,6 +129,10 @@ class Category extends Component {
         stickypost._embedded['wp:featuredmedia'][0].media_details.sizes
           .medium_large.source_url;
 
+      const stickyMedia =
+        stickypost._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+          .source_url;
+
       return (
         <FeaturedContent key={stickypost.id}>
           <a href={`/post?slug=${stickypost.slug}&apiRoute=post`}>
@@ -152,6 +154,7 @@ class Category extends Component {
                 __html: stickypost.excerpt.rendered,
               }}
             />
+            <ShareButtons url={stickypost.link} media={stickyMedia} />
           </div>
         </FeaturedContent>
       );
@@ -162,28 +165,35 @@ class Category extends Component {
         post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large
           .source_url;
 
+      const featuredMedia =
+        post._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+          .source_url;
+
       return (
         <CategoryPost key={post.id}>
-          <div className="center">
-            <a href={`/post?slug=${post.slug}&apiRoute=post`}>
-              <img width="450" height="280" src={featuredImage} alt="" />
-            </a>
+          <div className="postContent">
+            <div className="center">
+              <a href={`/post?slug=${post.slug}&apiRoute=post`}>
+                <img width="450" height="280" src={featuredImage} alt="" />
+              </a>
+            </div>
+            <div>
+              <Link
+                as={`/post/${post.slug}`}
+                href={`/post?slug=${post.slug}&apiRoute=post`}
+              >
+                <a className="title">{post.title.rendered}</a>
+              </Link>
+              <DatePost datesrc={post.date} />
+              <div
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                  __html: post.excerpt.rendered,
+                }}
+              />
+            </div>
           </div>
-          <div className="postInfo">
-            <Link
-              as={`/post/${post.slug}`}
-              href={`/post?slug=${post.slug}&apiRoute=post`}
-            >
-              <a className="title">{post.title.rendered}</a>
-            </Link>
-            <DatePost datesrc={post.date} />
-            <div
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: post.excerpt.rendered,
-              }}
-            />
-          </div>
+          <ShareButtons url={post.link} media={featuredMedia} />
         </CategoryPost>
       );
     });
