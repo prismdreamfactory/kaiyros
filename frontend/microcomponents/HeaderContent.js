@@ -48,8 +48,7 @@ const HeaderStuff = styled.div`
       margin: 0;
     }
 
-    .kaiyros,
-    .icons {
+    .kaiyros {
       display: none;
     }
     .alignCenter {
