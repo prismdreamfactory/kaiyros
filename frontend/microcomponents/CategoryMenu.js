@@ -8,11 +8,14 @@ const CategoryList = styled.div`
   }
 
   .show {
-    transform: translate3d(70vw, 0, 0);
+    transform: translate3d(62vw, 0, 0);
     overflow: hidden;
+    justify-content: center;
+    max-width: 500px;
 
     @media (min-width: 0px) and (max-width: 1024px) {
       transform: translate3d(0vw, 0, 0);
+      max-width: none;
     }
   }
 `;
@@ -38,7 +41,6 @@ const CategoryItem = styled.div`
     text-decoration: none;
     cursor: pointer;
     color: #000;
-    padding: 1rem;
   }
   img {
     width: 15%;
@@ -47,11 +49,12 @@ const CategoryItem = styled.div`
   .categoryEntry {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
-  .icons {
+  .stuff {
     display: none;
+    justify-content: center;
     @media (min-width: 0px) and (max-width: 1024px) {
       display: flex;
       justify-content: center;
@@ -73,35 +76,35 @@ const Open = styled.a`
   }
 `;
 
-// const Close = styled.a`
-//   position: fixed;
-//   top: 2rem;
-//   right: 2rem;
+const Close = styled.a`
+  display: flex;
+  justify-content: flex-end;
 
-//   .close {
-//     width: 40px;
-//     height: 40px;
-//     position: relative;
-//     cursor: pointer;
-//   }
+  .close {
+    padding: 0 1rem;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+  }
 
-//   .close:before {
-//     content: '';
-//     height: 40px;
-//     border-left: 2px solid #000;
-//     position: absolute;
-//     transform: rotate(-45deg);
-//     left: 28px;
-//   }
-//   .close:after {
-//     content: '';
-//     height: 40px;
-//     border-left: 2px solid #000;
-//     position: absolute;
-//     transform: rotate(45deg);
-//     left: 28px;
-//   }
-// `;
+  .close:before {
+    content: '';
+    height: 40px;
+    border-left: 2px solid #000;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 28px;
+  }
+  .close:after {
+    content: '';
+    height: 40px;
+    border-left: 2px solid #000;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 28px;
+  }
+`;
 
 class CategoryMenu extends Component {
   state = {
@@ -132,27 +135,28 @@ class CategoryMenu extends Component {
 
     return (
       <CategoryList>
-        <CategoryContainer
-          className={visibility}
-          onClick={this.handleCloseMenu}
-        >
-          {/* <Close>
-            <div className="close" />
-          </Close> */}
+        <CategoryContainer className={visibility}>
           <CategoryItem>
-            {categoriesMenu.map(category => (
-              <div className="categoryEntry">
-                <img
-                  src={category.acf.image.sizes.thumbnail}
-                  alt="placeholder"
-                />
-                <a href={category.link} alt="">
-                  {category.name}
-                </a>
+            <div>
+              <Close onClick={this.handleCloseMenu}>
+                <div className="close" />
+              </Close>
+
+              {categoriesMenu.map(category => (
+                <div className="categoryEntry">
+                  <img
+                    src={category.acf.image.sizes.thumbnail}
+                    alt="placeholder"
+                  />
+                  <a href={category.link} alt="">
+                    {category.name}
+                  </a>
+                </div>
+              ))}
+
+              <div className="stuff">
+                <Icons />
               </div>
-            ))}
-            <div className="icons">
-              <Icons />
             </div>
           </CategoryItem>
         </CategoryContainer>
